@@ -3,18 +3,12 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo 'building'
-                echo 'application built'
-            }
-        }
-        stage("test") {
-            steps {
-                echo 'testing'
-            }
-        }
-        stage("deploy") {
-            steps {
-                echo 'deploy'
+                echo 'building...'
+                nodejs('Node-22.4.1') {
+                    sh 'npm ci'
+                    sh 'npm run build'
+                }
+                echo 'built'
             }
         }
     }
