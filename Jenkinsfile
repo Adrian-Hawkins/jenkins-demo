@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo $TEST
+                echo "${TEST}"
                 echo 'building...'
                 nodejs('Node-22.4.1') {
                     sh 'npm ci'
